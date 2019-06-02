@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "manager-user-lib": [
+        "dist/manager-user-lib"
+      ],
+      "manager-user-lib/*": [
+        "dist/manager-user-lib/*"
+      ]
+    }
   }
 }

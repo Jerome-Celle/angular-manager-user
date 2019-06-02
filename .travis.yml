@@ -24,7 +24,7 @@ before_script:
   - npm install
 
 script:
-  - npm run lint
+  - ng lint build manager-user-lib
   - ng build manager-user-lib
   - ng test manager-user-lib
 

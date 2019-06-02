@@ -1,0 +1,36 @@
+dist: trusty
+sudo: false
+
+language: node_js
+node_js:
+  - "10"
+
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
+cache:
+  directories:
+    - ./node_modules
+
+branches:
+  only:
+    - /.*/
+
+before_script:
+  - npm install
+
+script:
+  - npm run lint
+  - ng build manager-user-lib
+  - ng test manager-user-lib
+
+after_success:
+  - cat ./coverage/manager-user-lib/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+env:
+  global:
+    - NG_CLI_ANALYTICS=ci
